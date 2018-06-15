@@ -28,7 +28,7 @@ RUN apt-get update && \
 	python3-pip \
 	nginx \
 	supervisor && \
-	pip3 install -U pip setuptools pymysql django djangorestframework && \
+	pip3 install -U pip setuptools && \
    rm -rf /var/lib/apt/lists/*
 
 # install uwsgi now because it takes a little while
