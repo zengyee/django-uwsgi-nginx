@@ -27,7 +27,8 @@ RUN apt-get update && \
 	python3-setuptools \
 	python3-pip \
 	nginx \
-	supervisor && \
+	supervisor \
+	rsync && \
 	pip3 install -U pip setuptools && \
    rm -rf /var/lib/apt/lists/*
 
