@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 
 MAINTAINER Dockerfiles
 
@@ -28,9 +28,10 @@ RUN apt-get update && \
 	python3-pip \
 	nginx \
 	supervisor \
-	rsync && \
-	pip3 install -U pip setuptools && \
-   rm -rf /var/lib/apt/lists/*
+	rsync vim curl && \
+	pip3 install -U pip setuptools 
+# && \
+#   rm -rf /var/lib/apt/lists/*
 
 # install uwsgi now because it takes a little while
 RUN pip3 install uwsgi
@@ -51,7 +52,7 @@ COPY . /home/docker/code/
 
 # install django, normally you would remove this step because your project would already
 # be installed in the code/app/ directory
-# RUN django-admin.py startproject website /home/docker/code/app/
+RUN django-admin.py startproject website /home/docker/code/app/
 
 EXPOSE 80
 CMD ["supervisord", "-n"]
