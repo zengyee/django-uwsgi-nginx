@@ -28,7 +28,7 @@ RUN apt-get update && \
 	python3-pip \
 	nginx \
 	supervisor \
-	rsync vim curl && \
+	rsync vim curl mysql-client && \
 	pip3 install -U pip setuptools && \
    rm -rf /var/lib/apt/lists/*
 
